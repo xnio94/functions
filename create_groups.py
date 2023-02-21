@@ -2,7 +2,7 @@ from functions.is_same_video import is_same_video
 
 
 def create_groups(atomic_clips, logs=False):
-    print("new groups")
+    print("new groups 42")
     # create groups
     groups = []
     group = [atomic_clips[0]]

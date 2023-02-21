@@ -1,5 +1,6 @@
 import glob
 import subprocess
+from importlib import import_module
 
 from functions.create_groups import create_groups
 from functions.donwload_urls import download_urls
@@ -11,6 +12,11 @@ from functions.split_to_atmic import split_to_atomic
 
 
 def process_episode(request):
+    tmp_functions = 'tmp_functions'  # 'a' + str(random.random())[5:10]
+    mod = import_module(tmp_functions + '.create_groups')
+    create_groups = getattr(mod, 'create_groups')
+
+
     # return 'test 19999942'
     print('#########>> start')
     command = "ffmpeg"
