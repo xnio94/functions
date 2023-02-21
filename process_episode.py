@@ -13,6 +13,12 @@ def process_episode(request):
     save_to_drive = dynamic_import('save_to_drive')
     split_to_atomic = dynamic_import('split_to_atomic')
 
+
+    clips = glob.glob('*.mp4')
+    for clip in clips:
+        remove_file(clip)
+
+
     # return 'test 19999942'
     print('#########>> start process_episode')
 
