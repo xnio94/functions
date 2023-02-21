@@ -53,15 +53,6 @@ def process_episode(request):
     print("#########>> all files : ")
     print(glob.glob('*'))
 
-    # print('test2')
-    # try:
-    #     com = ["ffmpeg", "-sseof", "0.2", "-i", "seed_0.mp4", "-c", "copy", "out.mp4"]
-    #     # com = "ffmpeg -sseof 0.2 -i seed_0.mp4 -c copy out.mp4"
-    #     subprocess.run(com)
-    # except Exception as ex:
-    #     print('problem')
-    #     print(ex)
-
     print('#########>> groups : ', groups)
     print('#########>> start: merge_groups')
     good_clips = merge_groups(groups, seed)
@@ -71,6 +62,9 @@ def process_episode(request):
     print("#########>> all files : ")
     print(glob.glob('*'))
 
+    print('#########>> start: save_to_drive')
+    print('#########>> start: save_to_drive')
+    print('#########>> start: save_to_drive')
     print('#########>> start: save_to_drive')
     for clip in good_clips:
         save_to_drive(clip)
