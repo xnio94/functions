@@ -15,9 +15,6 @@ def process_episode(request):
 
     # return 'test 19999942'
     print('#########>> start')
-    command = "ffmpeg"
-    x = subprocess.run(command, shell=True)
-    # return str(x)
 
     #
     # request_args = request.args
@@ -51,7 +48,7 @@ def process_episode(request):
     print(glob.glob('*'))
 
     print('#########>> atomic_clips : ', atomic_clips)
-    print('#########>> start: create_groups3')
+    print('#########>> start: create_groups 8888888')
     try:
         groups = create_groups(atomic_clips)
         print('no problem')
@@ -64,22 +61,15 @@ def process_episode(request):
     print("#########>> all files : ")
     print(glob.glob('*'))
 
-    print('test2')
-    try:
-        com = ["ffmpeg", "-sseof", "0.2", "-i", "seed_0.mp4", "-c", "copy", "out.mp4"]
-        # com = "ffmpeg -sseof 0.2 -i seed_0.mp4 -c copy out.mp4"
-        subprocess.run(com)
-    except Exception as ex:
-        print('problem')
-        print(ex)
+    # print('test2')
+    # try:
+    #     com = ["ffmpeg", "-sseof", "0.2", "-i", "seed_0.mp4", "-c", "copy", "out.mp4"]
+    #     # com = "ffmpeg -sseof 0.2 -i seed_0.mp4 -c copy out.mp4"
+    #     subprocess.run(com)
+    # except Exception as ex:
+    #     print('problem')
+    #     print(ex)
 
-    print('test4')
-    try:
-        command = ["ffmpeg", "-i", "seed_0.mp4", "-c", "copy", "out.mp4"]
-        subprocess.run(command, check=True)
-    except Exception as ex:
-        print('problem')
-        print(ex)
 
     print("#########>> .mp4 : ")
     print(glob.glob('*.mp4'))

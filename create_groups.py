@@ -1,7 +1,10 @@
+from functions.dynamic_import import dynamic_import
 from functions.is_same_video import is_same_video
 
 
 def create_groups(atomic_clips, logs=False):
+    new_func = dynamic_import('new_func')
+    print('new_func is :' + new_func())
     # create groups
     groups = []
     group = [atomic_clips[0]]
