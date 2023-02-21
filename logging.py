@@ -9,8 +9,8 @@ def name_of(var):
 
 def log_state(text, *args):
     print("#####################> ", text)
-    for arg in args:
-        print(f'#####################> {name_of(arg)} = {arg}')
+    for i in range(len(args)):
+        print(f'#####################> {name_of(args[i])} = {args[i]}')
 
     print("#####################> all videos : ")
     print(glob.glob('*.mp4'))
