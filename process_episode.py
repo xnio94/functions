@@ -90,7 +90,7 @@ def process_episode(request):
     print("#########>> all files : ")
     print(glob.glob('*'))
 
-    # return 'done'
+    return 'done'
 
     print('#########>> groups : ', groups)
     print('#########>> start: merge_groups')

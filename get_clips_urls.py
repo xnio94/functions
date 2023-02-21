@@ -8,7 +8,7 @@ from munch import DefaultMunch
 
 
 def get_clips_urls(episode_link):
-    print('get urls 42')
+    print('get urls 69')
     r = requests.get(episode_link)
     soup = BeautifulSoup(r.content, 'html.parser')
     s = soup.find('script', id='__NEXT_DATA__')
