@@ -49,7 +49,7 @@ def process_episode(request):
     print(glob.glob('*'))
 
     print('#########>> atomic_clips : ', atomic_clips)
-    print('#########>> start: create_groups2')
+    print('#########>> start: create_groups3')
     try:
         groups = create_groups(atomic_clips)
         print('no problem')
