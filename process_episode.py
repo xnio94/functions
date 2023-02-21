@@ -82,6 +82,14 @@ def process_episode(request):
         print(ex)
 
     try:
+        command = ["ffmpeg", "-i", "seed_0.mp4", "-c", "copy", "out.mp4"]
+        subprocess.run(command, check=True)
+    except Exception as ex:
+        print('problem')
+        print(ex)
+
+
+    try:
         com = "ffmpeg"
         subprocess.run(com)
     except Exception as ex:
