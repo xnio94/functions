@@ -1,10 +1,10 @@
 import glob
 
 from functions.dynamic_import import dynamic_import
-from functions.logging import log_state
 
 
 def process_episode(request):
+    log_state = dynamic_import('log_state')
     create_groups = dynamic_import('create_groups')
     download_urls = dynamic_import('download_urls')
     get_clips_urls = dynamic_import('get_clips_urls')

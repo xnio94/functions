@@ -4,10 +4,10 @@ import string
 import subprocess
 
 from functions.dynamic_import import dynamic_import
-from functions.logging import log_state
 
 
 def is_consecutive(video1, video2):
+    log_state = dynamic_import('log_state')
     merge_videos = dynamic_import('merge_videos')
     remove_file = dynamic_import('remove_file')
     scene_detect = dynamic_import('scene_detect')
