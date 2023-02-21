@@ -43,8 +43,11 @@ def process_episode(request):
     atomic_clips = split_to_atomic(clips, seed)
 
     x = 17
-    my_var = "testss"
-    log_state("test",x, my_var )
+    my_var1 = "testss1"
+    my_var2 = "testss2"
+    my_var3 = "testss3"
+    my_var4 = "testss4"
+    log_state("test", my_var1, my_var2, my_var3, my_var4)
 
     print('#########>> atomic_clips : ', atomic_clips)
     print('#########>> start: create_groups')
