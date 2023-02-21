@@ -51,7 +51,18 @@ def process_episode(request):
 
     print('#########>> atomic_clips : ', atomic_clips)
     print('#########>> start: create_groups')
-    groups = create_groups(atomic_clips)
+    try:
+        groups = create_groups(atomic_clips)
+    except Exception as ex:
+        print(ex)
+
+    print("#########>> .mp4 : ")
+    print(glob.glob('*.mp4'))
+    print("#########>> all files : ")
+    print(glob.glob('*'))
+
+    return 'done'
+
     print('#########>> groups : ', groups)
     print('#########>> start: merge_groups')
     good_clips = merge_groups(groups, seed)
