@@ -17,64 +17,45 @@ def process_episode(request):
     for clip in clips:
         remove_file(clip)
 
-    # return 'test 19999942'
-    print('#########>> start process_episode')
-
+    log_state("start: process_episode")
     #
     # request_args = request.args
     # if request_args and 'link' in request_args:
     #     link = request_args['link']
-    """
-    #################################
-    """
     seed = 'seed_'
     episode_link = 'https://story.snapchat.com/p/52b2897c-ea49-4659-9ccd-9e9db12ccb57/1866136369958912'
     # episode_link  = 'https://story.snapchat.com/p/52b2897c-ea49-4659-9ccd-9e9db12ccb57/2548934642860032'
-    print('#########>> start: get_title_urls')
+
+    log_state("start: get_title_urls", episode_link)
+
     title, urls = get_clips_urls(episode_link)
     print(urls[0:3])
-    print('#########>> start: download_urls')
+    log_state("start: download_urls", urls[0:3])
+
     count = download_urls(urls[7:11], seed)
     # count = 4
 
     clips = [seed + str(i) + '.mp4' for i in range(count)]
-    print('#########>> clips: ', clips)
-    print('#########>> start: split_to_atomic')
+
+    log_state("start: split_to_atomic", clips)
+
     atomic_clips = split_to_atomic(clips, seed)
 
-    x = 17
-    my_var1 = "testss1"
-    my_var2 = "testss2"
-    my_var3 = "testss3"
-    my_var4 = "testss4"
-    log_state("test", my_var1, my_var2, my_var3, my_var4)
+    log_state("start: create_groups", atomic_clips)
 
-    print('#########>> atomic_clips : ', atomic_clips)
-    print('#########>> start: create_groups')
     groups = create_groups(atomic_clips)
 
-    print("#########>> .mp4 : ")
-    print(glob.glob('*.mp4'))
-    print("#########>> all files : ")
-    print(glob.glob('*'))
+    log_state("start: merge_groups", groups)
 
-    print('#########>> groups : ', groups)
-    print('#########>> start: merge_groups')
     good_clips = merge_groups(groups, seed)
 
-    print("#########>> .mp4 : ")
-    print(glob.glob('*.mp4'))
-    print("#########>> all files : ")
-    print(glob.glob('*'))
+    log_state("start: save_to_drive", good_clips)
 
-    print('#########>> start: save_to_drive')
-    print('#########>> start: save_to_drive')
-    print('#########>> start: save_to_drive')
-    print('#########>> start: save_to_drive')
     for clip in good_clips:
         save_to_drive(clip)
 
-    print('#########>> start: remove')
+    log_state("start: remove")
+
     # remove all atomic clips
     for clip in good_clips:
         remove_file(clip)

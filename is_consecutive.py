@@ -4,6 +4,7 @@ import string
 import subprocess
 
 from functions.dynamic_import import dynamic_import
+from functions.logging import log_state
 
 
 def is_consecutive(video1, video2):
@@ -11,7 +12,8 @@ def is_consecutive(video1, video2):
     remove_file = dynamic_import('remove_file')
     scene_detect = dynamic_import('scene_detect')
 
-    print("#########>>is_consecutive start : ")
+    log_state("start: is_consecutive")
+
     video1_end = video1[:-4] + ''.join(
         random.choices(string.ascii_letters + string.digits, k=16)) + '.mp4'
     video2_start = video2[:-4] + ''.join(
@@ -20,42 +22,22 @@ def is_consecutive(video1, video2):
         random.choices(string.ascii_letters + string.digits, k=16)) + '.mp4'
     duration = "0.2"
 
-    print("#########>> .mp4 : ")
-    print(glob.glob('*.mp4'))
-    print("#########>> all files : ")
-    print(glob.glob('*'))
-
-    print("#########>>" + video1_end + " start : ")
-    # command = f'ffmpeg -sseof -{duration} -i "{video1}" -c copy "{video1_end}"'
+    log_state("start: is_consecutive", video1_end, video2_start, merged_result)
     command = ["ffmpeg", "-sseof", f"-{duration}", "-i", video1, "-c", "copy", video1_end]
-    print("#########>>" + str(command))
+    log_state("", command)
     subprocess.run(command)
 
-    print("#########>> .mp4 : ")
-    print(glob.glob('*.mp4'))
-    print("#########>> all files : ")
-    print(glob.glob('*'))
+    log_state("start: second video", video1_end, video2_start, merged_result)
 
-    print("#########>>" + video2_start + " start : ")
-    # command = f'ffmpeg -t {duration} -i "{video2}" -c copy "{video2_start}"'
     command = ["ffmpeg", "-t", f"{duration}", "-i", video2, "-c", "copy", video2_start]
-    print("#########>>" + str(command))
+    log_state("", command)
     subprocess.run(command)
 
-    print("#########>> .mp4 : ")
-    print(glob.glob('*.mp4'))
-    print("#########>> all files : ")
-    print(glob.glob('*'))
+    log_state("start: merge_videos")
 
-    print("#########>>merge_videos start : ")
     merge_videos([video1_end, video2_start], merged_result)
 
-    print("#########>>ok")
-
-    print("#########>> .mp4 : ")
-    print(glob.glob('*.mp4'))
-    print("#########>> all files : ")
-    print(glob.glob('*'))
+    log_state("start: ok")
 
     scenes = scene_detect(merged_result, split=False)
     remove_file(video1_end)
