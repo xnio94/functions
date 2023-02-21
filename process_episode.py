@@ -1,21 +1,17 @@
 import glob
 import subprocess
-from importlib import import_module
 
-from functions.create_groups import create_groups
-from functions.donwload_urls import download_urls
-from functions.get_clips_urls import get_clips_urls
-from functions.merge_groups import merge_groups
-from functions.remove_file import remove_file
-from functions.save_to_drive import save_to_drive
-from functions.split_to_atmic import split_to_atomic
+from functions.dynamic_import import dynamic_import
 
 
 def process_episode(request):
-    tmp_functions = 'tmp_functions'  # 'a' + str(random.random())[5:10]
-    mod = import_module(tmp_functions + '.create_groups')
-    create_groups = getattr(mod, 'create_groups')
-
+    create_groups = dynamic_import('create_groups')
+    download_urls = dynamic_import('download_urls')
+    get_clips_urls = dynamic_import('get_clips_urls')
+    merge_groups = dynamic_import('merge_groups')
+    remove_file = dynamic_import('remove_file')
+    save_to_drive = dynamic_import('save_to_drive')
+    split_to_atomic = dynamic_import('split_to_atomic')
 
     # return 'test 19999942'
     print('#########>> start')
