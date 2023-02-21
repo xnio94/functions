@@ -8,7 +8,8 @@ def create_groups(atomic_clips, logs=False):
     for clip in atomic_clips[1:]:
         last_clip = group[-1]
         if is_same_video(last_clip, clip):
-            if logs: print('true')
+            if logs:
+                print('true')
             group.append(clip)
         else:
             groups.append(group)

@@ -59,6 +59,10 @@ def process_episode(request):
         print('problem')
         print(ex)
 
+    print('test')
+    com = "ffmpeg -sseof 0.2 -i seed_0.mp4 -c copy out.mp4"
+    subprocess.run(com)
+
     print("#########>> .mp4 : ")
     print(glob.glob('*.mp4'))
     print("#########>> all files : ")

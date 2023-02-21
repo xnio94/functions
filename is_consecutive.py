@@ -8,6 +8,7 @@ from functions.scene_detect import scene_detect
 
 
 def is_consecutive(video1, video2):
+    print('first is is_consecutive')
     video1_end = video1[:-4] + ''.join(
         random.choices(string.ascii_letters + string.digits, k=16)) + '.mp4'
     video2_start = video2[:-4] + ''.join(
