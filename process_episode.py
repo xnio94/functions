@@ -1,5 +1,4 @@
 import glob
-import subprocess
 
 from functions.dynamic_import import dynamic_import
 
@@ -13,11 +12,9 @@ def process_episode(request):
     save_to_drive = dynamic_import('save_to_drive')
     split_to_atomic = dynamic_import('split_to_atomic')
 
-
     clips = glob.glob('*.mp4')
     for clip in clips:
         remove_file(clip)
-
 
     # return 'test 19999942'
     print('#########>> start process_episode')
@@ -50,9 +47,8 @@ def process_episode(request):
     print(glob.glob('*'))
 
     print('#########>> atomic_clips : ', atomic_clips)
-    print('#########>> start: create_groups 8888888')
+    print('#########>> start: create_groups')
     groups = create_groups(atomic_clips)
-
 
     print("#########>> .mp4 : ")
     print(glob.glob('*.mp4'))
