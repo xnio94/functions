@@ -18,10 +18,10 @@ def is_consecutive(video1, video2):
 
     # command = f'ffmpeg -sseof -{duration} -i "{video1}" -c copy "{video1_end}"'
     command = ["ffmpeg", "-sseof", f"-{duration}", "-i", video1, "-c", "copy", video1_end]
-    subprocess.run(command, check=True)
+    subprocess.run(command)
     # command = f'ffmpeg -t {duration} -i "{video2}" -c copy "{video2_start}"'
     command = ["ffmpeg", "-t", f"{duration}", "-i", video2, "-c", "copy", video2_start]
-    subprocess.run(command, check=True)
+    subprocess.run(command)
 
     merge_videos([video1_end, video2_start], merged_result)
     scenes = scene_detect(merged_result, split=False)

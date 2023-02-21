@@ -16,6 +16,6 @@ def merge_videos(videos, output_name):
     command = ["ffmpeg", "-f", "concat", "-i", list_file, "-c", "copy", output_name]
 
     # time.sleep(2)
-    x = subprocess.run(command, shell=True)
+    x = subprocess.run(command)
     # time.sleep(2)
     os.remove(list_file)
