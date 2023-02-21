@@ -3,7 +3,8 @@ import inspect
 
 
 def log_state(text, var1=None, var2=None, var3=None, var4=None):
-    print("#####################> State")
+    print("########################################################################")
+    print("#####################> State <##########################################")
 
     if var1 is not None:
         callers_local_vars = inspect.currentframe().f_back.f_locals.items()
@@ -30,4 +31,4 @@ def log_state(text, var1=None, var2=None, var3=None, var4=None):
     print(glob.glob('*'))
 
     print("#####################> ", text)
-    print("#####################> State logging finish")
+    print("#####################> State finish <###################################")
