@@ -12,7 +12,7 @@ from functions.split_to_atmic import split_to_atomic
 
 
 def process_episode(request):
-    return '1942'
+    return '1942 a942'
     print('#########>> start')
     command = "ffmpeg"
     x = subprocess.run(command, shell=True)
