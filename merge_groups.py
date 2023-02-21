@@ -1,9 +1,10 @@
 import glob
 
-from functions.merge_videos import merge_videos
-
+from functions.dynamic_import import dynamic_import
 
 def merge_groups(groups, seed):
+    merge_videos = dynamic_import('merge_videos')
+
     good_count = 0
     for group in groups:
         group_name = seed + f'good_{good_count}.mp4'
