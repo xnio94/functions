@@ -5,7 +5,7 @@ import subprocess
 
 
 def merge_videos(videos, output_name):
-    list_file = ''.join(random.choices(string.ascii_letters + string.digits, k=32)) + '.txt'
+    list_file = 'merge_' + ''.join(random.choices(string.ascii_letters + string.digits, k=32))
     if os.path.exists(output_name):
         os.remove(output_name)
     with open(list_file, "w") as f:
@@ -18,4 +18,4 @@ def merge_videos(videos, output_name):
     # time.sleep(2)
     x = subprocess.run(command)
     # time.sleep(2)
-    os.remove(list_file)
+    # os.remove(list_file)

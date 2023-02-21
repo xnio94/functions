@@ -45,6 +45,13 @@ def is_consecutive(video1, video2):
     print("#########>>" + str(command))
     subprocess.run(command)
 
+
+    print("#########>> .mp4 : ")
+    print(glob.glob('*.mp4'))
+    print("#########>> all files : ")
+    print(glob.glob('*'))
+
+
     print("#########>>merge_videos start : ")
     merge_videos([video1_end, video2_start], merged_result)
 
