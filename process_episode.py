@@ -14,7 +14,7 @@ def process_episode(request):
     split_to_atomic = dynamic_import('split_to_atomic')
 
     # return 'test 19999942'
-    print('#########>> start')
+    print('#########>> start process_episode')
 
     #
     # request_args = request.args
@@ -32,10 +32,6 @@ def process_episode(request):
     print('#########>> start: download_urls')
     count = download_urls(urls[7:10], seed)
     # count = 4
-    print("#########>> .mp4 : ")
-    print(glob.glob('*.mp4'))
-    print("#########>> all files : ")
-    print(glob.glob('*'))
 
     clips = [seed + str(i) + '.mp4' for i in range(count)]
     print('#########>> clips: ', clips)
@@ -49,12 +45,8 @@ def process_episode(request):
 
     print('#########>> atomic_clips : ', atomic_clips)
     print('#########>> start: create_groups 8888888')
-    try:
-        groups = create_groups(atomic_clips)
-        print('no problem')
-    except Exception as ex:
-        print('problem')
-        print(ex)
+    groups = create_groups(atomic_clips)
+
 
     print("#########>> .mp4 : ")
     print(glob.glob('*.mp4'))
@@ -69,14 +61,6 @@ def process_episode(request):
     # except Exception as ex:
     #     print('problem')
     #     print(ex)
-
-
-    print("#########>> .mp4 : ")
-    print(glob.glob('*.mp4'))
-    print("#########>> all files : ")
-    print(glob.glob('*'))
-
-    return 'done'
 
     print('#########>> groups : ', groups)
     print('#########>> start: merge_groups')
