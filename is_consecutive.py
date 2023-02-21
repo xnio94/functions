@@ -9,11 +9,11 @@ from functions.scene_detect import scene_detect
 
 def is_consecutive(video1, video2):
     video1_end = video1[:-4] + ''.join(
-        random.choices(string.ascii_letters + string.digits, k=32)) + '.mp4'
+        random.choices(string.ascii_letters + string.digits, k=16)) + '.mp4'
     video2_start = video2[:-4] + ''.join(
-        random.choices(string.ascii_letters + string.digits, k=32)) + '.mp4'
+        random.choices(string.ascii_letters + string.digits, k=16)) + '.mp4'
     merged_result = video1[:-4] + ''.join(
-        random.choices(string.ascii_letters + string.digits, k=32)) + '.mp4'
+        random.choices(string.ascii_letters + string.digits, k=16)) + '.mp4'
     duration = "0.2"
     command = f'ffmpeg -sseof -{duration} -i "{video1}" -c copy "{video1_end}"'
     subprocess.run(command)

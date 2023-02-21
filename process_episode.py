@@ -52,8 +52,11 @@ def process_episode(request):
     print('#########>> atomic_clips : ', atomic_clips)
     print('#########>> start: create_groups')
     try:
+
         groups = create_groups(atomic_clips)
+        print('no problem')
     except Exception as ex:
+        print('problem')
         print(ex)
 
     print("#########>> .mp4 : ")
