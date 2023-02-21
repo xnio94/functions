@@ -3,7 +3,6 @@ import subprocess
 
 from functions.create_groups import create_groups
 from functions.donwload_urls import download_urls
-from functions.func import func
 from functions.get_clips_urls import get_clips_urls
 from functions.merge_groups import merge_groups
 from functions.remove_file import remove_file
@@ -63,18 +62,10 @@ def process_episode(request):
     print("#########>> all files : ")
     print(glob.glob('*'))
 
-
     print('test2')
     try:
-        com = "ffmpeg -sseof 0.2 -i seed_0.mp4 -c copy out.mp4"
-        subprocess.run(com)
-    except Exception as ex:
-        print('problem')
-        print(ex)
-
-    print('test3')
-    try:
-        com = "ffmpeg -i seed_0.mp4 -c copy out.mp4"
+        com = ["ffmpeg", "-sseof", "0.2", "-i", "seed_0.mp4", "-c", "copy", "out.mp4"]
+        # com = "ffmpeg -sseof 0.2 -i seed_0.mp4 -c copy out.mp4"
         subprocess.run(com)
     except Exception as ex:
         print('problem')
@@ -88,17 +79,12 @@ def process_episode(request):
         print('problem')
         print(ex)
 
-
-
     print("#########>> .mp4 : ")
     print(glob.glob('*.mp4'))
     print("#########>> all files : ")
     print(glob.glob('*'))
 
-
-
     # return 'done'
-
 
     print('#########>> groups : ', groups)
     print('#########>> start: merge_groups')
