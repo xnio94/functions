@@ -73,7 +73,7 @@ def process_episode(request):
         print('problem')
         print(ex)
 
-        print('test3')
+    print('test3')
     try:
         com = "ffmpeg -i seed_0.mp4 -c copy out.mp4"
         subprocess.run(com)
@@ -81,6 +81,7 @@ def process_episode(request):
         print('problem')
         print(ex)
 
+    print('test4')
     try:
         command = ["ffmpeg", "-i", "seed_0.mp4", "-c", "copy", "out.mp4"]
         subprocess.run(command, check=True)
@@ -88,7 +89,7 @@ def process_episode(request):
         print('problem')
         print(ex)
 
-
+    print('test5')
     try:
         com = "ffmpeg"
         subprocess.run(com)
@@ -104,7 +105,8 @@ def process_episode(request):
 
 
 
-    return 'done'
+    # return 'done'
+
 
     print('#########>> groups : ', groups)
     print('#########>> start: merge_groups')

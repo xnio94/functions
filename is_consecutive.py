@@ -16,10 +16,14 @@ def is_consecutive(video1, video2):
     merged_result = video1[:-4] + ''.join(
         random.choices(string.ascii_letters + string.digits, k=16)) + '.mp4'
     duration = "0.2"
-    command = f'ffmpeg -sseof -{duration} -i "{video1}" -c copy "{video1_end}"'
+
+    # command = f'ffmpeg -sseof -{duration} -i "{video1}" -c copy "{video1_end}"'
+    command = ["ffmpeg", "-sseof", f"-{duration}", "-i", video1, "-c", "copy", video1_end]
     subprocess.run(command)
-    command = f'ffmpeg -t {duration} -i "{video2}" -c copy "{video2_start}"'
+    # command = f'ffmpeg -t {duration} -i "{video2}" -c copy "{video2_start}"'
+    command = ["ffmpeg", "-t", f"{duration}", "-i", video2, "-c", "copy", video2_start]
     subprocess.run(command)
+
     merge_videos([video1_end, video2_start], merged_result)
     scenes = scene_detect(merged_result, split=False)
     remove_file(video1_end)

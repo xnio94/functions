@@ -1,8 +1,7 @@
 import os
+import random
 import string
 import subprocess
-import time
-import random
 
 
 def merge_videos(videos, output_name):
@@ -12,7 +11,10 @@ def merge_videos(videos, output_name):
     with open(list_file, "w") as f:
         for video in videos:
             f.write(f"file {video}\n")
-    command = "ffmpeg -f concat -i " + list_file + " -c copy " + output_name
+
+    # command = "ffmpeg -f concat -i " + list_file + " -c copy " + output_name
+    command = ["ffmpeg", "-f", "concat", "-i", list_file, "-c", "copy", output_name]
+
     # time.sleep(2)
     x = subprocess.run(command, shell=True)
     # time.sleep(2)
