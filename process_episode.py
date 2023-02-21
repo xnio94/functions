@@ -1,6 +1,7 @@
 import glob
 
 from functions.dynamic_import import dynamic_import
+from functions.logging import log_state
 
 
 def process_episode(request):
@@ -41,10 +42,9 @@ def process_episode(request):
     print('#########>> start: split_to_atomic')
     atomic_clips = split_to_atomic(clips, seed)
 
-    print("#########>> .mp4 : ")
-    print(glob.glob('*.mp4'))
-    print("#########>> all files : ")
-    print(glob.glob('*'))
+    x = 17
+    my_var = "testss"
+    log_state("test",x, my_var )
 
     print('#########>> atomic_clips : ', atomic_clips)
     print('#########>> start: create_groups')
