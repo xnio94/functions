@@ -32,7 +32,7 @@ from googleapiclient.http import MediaFileUpload
 SCOPES = ['https://www.googleapis.com/auth/drive']
 
 
-def save_to_drive(file):
+def save_to_drive(file, title):
     creds = None
     # The file token.json stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -66,7 +66,7 @@ def save_to_drive(file):
         # print('3')
         #
         file_metadata = {
-            'name': file,
+            'name': file + '_' + title,
             'mimeType': '*/*',
             'parents': ['1hdNvyF2sdCU-jVMh1vaDGP7qxW96SlX3'],
         }

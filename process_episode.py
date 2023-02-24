@@ -43,7 +43,7 @@ def process_episode(request):
 
     log_state("start: process_episode")
     #
-    seed = 'seed_'
+    seed = '_'
     # episode_link = 'https://story.snapchat.com/p/52b2897c-ea49-4659-9ccd-9e9db12ccb57/1866136369958912'
     # episode_link  = 'https://story.snapchat.com/p/52b2897c-ea49-4659-9ccd-9e9db12ccb57/2548934642860032'
 
@@ -98,7 +98,7 @@ def process_episode(request):
 
     # good_clips = ['u' + clip for clip in good_clips]
     for clip in good_clips:
-        save_to_drive('u' + clip)
+        save_to_drive('u' + clip, title)
 
     log_state("start: remove")
 
