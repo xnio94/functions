@@ -5,6 +5,29 @@ from functions.dynamic_import import dynamic_import
 
 
 def process_episode(request):
+    #
+    # Cors section start
+    #
+    # Set CORS headers for the preflight request
+    if request.method == 'OPTIONS':
+        # Allows GET requests from any origin with the Content-Type
+        # header and caches preflight response for an 3600s
+        headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Max-Age': '3600'
+        }
+
+        return ('', 204, headers)
+
+    # Set CORS headers for the main request
+    headers = {
+        'Access-Control-Allow-Origin': '*'
+    }
+    #
+    # Cors section end
+    #
     log_state = dynamic_import('log_state')
     create_groups = dynamic_import('create_groups')
     download_urls = dynamic_import('download_urls')
@@ -28,7 +51,7 @@ def process_episode(request):
     if request_args and 'link' in request_args:
         episode_link = request_args['link']
     else:
-        return "fuck"
+        return ("fuck", 200, headers)
 
     log_state("start: get_title_urls", episode_link)
 
@@ -87,4 +110,4 @@ def process_episode(request):
         remove_file(clip)
     for clip in clips:
         remove_file(clip)
-    return f'Hello'
+    return ('ok', 200, headers)
