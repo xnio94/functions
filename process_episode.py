@@ -72,7 +72,7 @@ def process_episode(request):
 
     good_clips = ['u' + clip for clip in good_clips]
     for clip in good_clips:
-        save_to_drive('u' + clip)
+        save_to_drive(clip)
 
     log_state("start: remove")
 
