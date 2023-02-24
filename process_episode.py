@@ -36,7 +36,7 @@ def process_episode(request):
     print(urls[0:3])
     log_state("start: download_urls", urls[0:3])
 
-    count = download_urls(urls, seed)
+    count = download_urls(urls[0:4], seed)
     # count = 4
 
     clips = [seed + str(i) + '.mp4' for i in range(count)]
