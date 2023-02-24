@@ -1,4 +1,5 @@
 import glob
+import subprocess
 
 from functions.dynamic_import import dynamic_import
 
@@ -52,7 +53,26 @@ def process_episode(request):
     log_state("start: save_to_drive", good_clips)
 
     for clip in good_clips:
-        save_to_drive(clip)
+        # cc = "ffmpeg -i output.mp4 -vf scale=1080:1920 -preset ultrafast -threads 4 -c:a copy output5.mp4"
+        command = [
+            "ffmpeg",
+            "-i",
+            clip,
+            "-vf",
+            "scale=1080:1920",
+            "-preset",
+            "ultrafast",
+            "-threads",
+            "4",
+            "-c:a",
+            "copy",
+            'u' + clip
+        ]
+        x = subprocess.run(command)
+
+    good_clips = ['u' + clip for clip in good_clips]
+    for clip in good_clips:
+        save_to_drive('u' + clip)
 
     log_state("start: remove")
 
