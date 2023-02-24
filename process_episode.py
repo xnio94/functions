@@ -70,15 +70,16 @@ def process_episode(request):
         ]
         x = subprocess.run(command)
 
-    good_clips = ['u' + clip for clip in good_clips]
+    # good_clips = ['u' + clip for clip in good_clips]
     for clip in good_clips:
-        save_to_drive(clip)
+        save_to_drive('u' + clip)
 
     log_state("start: remove")
 
     # remove all atomic clips
     for clip in good_clips:
         remove_file(clip)
+        remove_file('u' + clip)
     for clip in atomic_clips:
         remove_file(clip)
     for clip in clips:
