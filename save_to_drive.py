@@ -68,7 +68,7 @@ def save_to_drive(file, title):
         file_metadata = {
             'name': file + '_' + title,
             'mimeType': '*/*',
-            'parents': ['1hdNvyF2sdCU-jVMh1vaDGP7qxW96SlX3'],
+            'parents': ['1QYSXP7WB2t9xo2G0tK9B6XIzzMaiDRNF'],
         }
         media = MediaFileUpload(file, mimetype='*/*', resumable=True)
         file = service.files().create(body=file_metadata, media_body=media, fields='id').execute()
