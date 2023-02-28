@@ -3,6 +3,7 @@ import inspect
 
 
 def log_state(text, var1=None, var2=None, var3=None, var4=None):
+    return
     print("########################################################################")
     print("#####################> State <##########################################")
 
