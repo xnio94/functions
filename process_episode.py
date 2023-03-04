@@ -58,7 +58,7 @@ def process_episode(request):
     if request_args and 'anas' in request_args:
         anas_link = request_args['anas']
 
-        f = urllib.urlopen(anas_link)
+        f = urllib.request.urlopen(anas_link)
         with open("filename", "wb") as imgFile:
             imgFile.write(f.read())
 
