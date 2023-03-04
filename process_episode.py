@@ -58,10 +58,10 @@ def process_episode(request):
     if request_args and 'anas' in request_args:
         anas_link = request_args['anas']
         urllib.request.urlretrieve(anas_link, 'filename')
-        return send_file('filename',
+        return (send_file('filename',
                          # as_attachment=True,
                          mimetype='image/jpeg',
-                         )
+                         ), 200, headers)
     ############################################################
     ############################################################
     ############################################################
