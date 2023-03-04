@@ -1,5 +1,8 @@
 import glob
 import subprocess
+import urllib
+
+from flask import send_file
 
 from functions.dynamic_import import dynamic_import
 
@@ -52,6 +55,22 @@ def process_episode(request):
         episode_link = request_args['link']
     else:
         return ("fuck", 200, headers)
+
+    ############################################################
+    ############################################################
+    ############################################################
+    ############################################################
+    if request_args and 'anas' in request_args:
+        anas_link = request_args['anas']
+        urllib.request.urlretrieve(anas_link, 'filename')
+        return send_file('filename',
+                         # as_attachment=True,
+                         mimetype='image/jpeg',
+                         )
+    ############################################################
+    ############################################################
+    ############################################################
+    ############################################################
 
     log_state("start: get_title_urls", episode_link)
 
