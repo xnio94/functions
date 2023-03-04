@@ -51,11 +51,6 @@ def process_episode(request):
     # episode_link  = 'https://story.snapchat.com/p/52b2897c-ea49-4659-9ccd-9e9db12ccb57/2548934642860032'
 
     request_args = request.args
-    if request_args and 'link' in request_args:
-        episode_link = request_args['link']
-    else:
-        return ("fuck", 200, headers)
-
     ############################################################
     ############################################################
     ############################################################
@@ -71,6 +66,14 @@ def process_episode(request):
     ############################################################
     ############################################################
     ############################################################
+
+
+    if request_args and 'link' in request_args:
+        episode_link = request_args['link']
+    else:
+        return ("fuck", 200, headers)
+
+
 
     log_state("start: get_title_urls", episode_link)
 
