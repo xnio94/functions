@@ -6,6 +6,8 @@ from flask import send_file
 
 from functions.dynamic_import import dynamic_import
 
+import requests
+
 
 def process_episode(request):
     #
@@ -58,9 +60,15 @@ def process_episode(request):
     if request_args and 'anas' in request_args:
         anas_link = request_args['anas']
 
-        f = urllib.request.urlopen(anas_link)
-        with open("filename", "wb") as imgFile:
-            imgFile.write(f.read())
+        # url = request.args.get('url', '')
+        response = requests.get(anas_link)
+        return response.content, response.status_code, response.headers.items()
+
+
+
+        # f = urllib.request.urlopen(anas_link)
+        # with open("filename", "wb") as imgFile:
+        #     imgFile.write(f.read())
 
         # urllib.request.urlretrieve(anas_link, 'filename',)
         return (send_file('filename',
