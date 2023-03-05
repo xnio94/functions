@@ -58,7 +58,10 @@ def process_episode(request):
     ############################################################
     ############################################################
     if request_args and 'anas' in request_args:
+        print("niceee")
         anas_link = request_args['anas']
+        anas_link = "https://openailabsprodscus.blob.core.windows.net/private/user-P0iWohdGZ4CQCPD526WEhTBT/generations/generation-9vfxXLijh0NN3RGVVpoQBe0b/image.webp?st=2023-03-05T04%3A38%3A53Z&se=2023-03-05T06%3A36%3A53Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/webp&skoid=15f0b47b-a152-4599-9e98-9cb4a58269f8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-03-05T03%3A10%3A54Z&ske=2023-03-12T03%3A10%3A54Z&sks=b&skv=2021-08-06&sig=idUX5oT7SjOblKb1iRck8GmCA4sJNC48hWh%2BuRkNoys%3D"
+
 
         # url = request.args.get('url', '')
         response = requests.get(anas_link)
