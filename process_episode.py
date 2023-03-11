@@ -75,6 +75,8 @@ def process_episode(request):
                 200,
                 headers)
     request_json = request.get_json()
+    print("burrrn")
+    print(request_json)
     if request_json and 'ok' in request_json:
         vx = request_args['ok']
         # urllib.request.urlretrieve(anas_link, 'filename',)
