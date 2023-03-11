@@ -2,7 +2,7 @@ import glob
 import subprocess
 import urllib
 
-from flask import send_file
+from flask import send_file, jsonify
 
 from functions.dynamic_import import dynamic_import
 
@@ -74,6 +74,10 @@ def process_episode(request):
                           ),
                 200,
                 headers)
+    if request_args and 'vx' in request_args:
+        vx = request_args['vx']
+        # urllib.request.urlretrieve(anas_link, 'filename',)
+        return jsonify({"title": "title"})
     ############################################################
     ############################################################
     ############################################################
@@ -82,7 +86,7 @@ def process_episode(request):
     if request_args and 'link' in request_args:
         episode_link = request_args['link']
     else:
-        return ("fuck", 200, headers)
+        return ("fu", 200, headers)
 
     log_state("start: get_title_urls", episode_link)
 
