@@ -74,8 +74,9 @@ def process_episode(request):
                           ),
                 200,
                 headers)
-    if request_args and 'vx' in request_args:
-        vx = request_args['vx']
+    request_json = request.get_json()
+    if request_json and 'ok' in request_json:
+        vx = request_args['ok']
         # urllib.request.urlretrieve(anas_link, 'filename',)
         return jsonify({"title": "title"})
     ############################################################
