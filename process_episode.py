@@ -39,7 +39,6 @@ def process_episode(request):
     remove_file = dynamic_import('remove_file')
     save_to_drive = dynamic_import('save_to_drive')
     split_to_atomic = dynamic_import('split_to_atomic')
-    a_dummy_json = dynamic_import('a_dummy_json')
 
     clips = glob.glob('*.mp4')
     for clip in clips:
@@ -76,8 +75,9 @@ def process_episode(request):
     request_json = request.get_json()
     print("burrrn")
     print(request_json)
+    a_dummy_json = dynamic_import('a_dummy_json')
     if request_json and 'generate' in request_json:
-        return jsonify(my_json)
+        return jsonify(a_dummy_json)
     ############################################################
     ############################################################
     ############################################################
