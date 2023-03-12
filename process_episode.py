@@ -4,6 +4,7 @@ import urllib
 
 from flask import send_file, jsonify
 
+from functions.a_dummy_json import my_json
 from functions.dynamic_import import dynamic_import
 
 import requests
@@ -77,10 +78,8 @@ def process_episode(request):
     request_json = request.get_json()
     print("burrrn")
     print(request_json)
-    if request_json and 'ok' in request_json:
-        vx = request_json['ok']
-        # urllib.request.urlretrieve(anas_link, 'filename',)
-        return jsonify({"title": "title"})
+    if request_json and 'generate' in request_json:
+        return jsonify(my_json)
     ############################################################
     ############################################################
     ############################################################
