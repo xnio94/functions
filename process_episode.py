@@ -77,7 +77,12 @@ def process_episode(request):
     print(request_json)
     a_dummy_json = dynamic_import('a_dummy_json')
     if request_json and 'generate' in request_json:
-        return jsonify(a_dummy_json)
+        gg = request_json['request_json']
+        if gg == "all":
+            return jsonify(a_dummy_json)
+        else:
+            return jsonify({gg: a_dummy_json[gg]})
+
     ############################################################
     ############################################################
     ############################################################
