@@ -4,10 +4,7 @@ import urllib
 
 from flask import send_file, jsonify
 
-from functions.a_dummy_json import my_json
 from functions.dynamic_import import dynamic_import
-
-import requests
 
 
 def process_episode(request):
@@ -42,6 +39,7 @@ def process_episode(request):
     remove_file = dynamic_import('remove_file')
     save_to_drive = dynamic_import('save_to_drive')
     split_to_atomic = dynamic_import('split_to_atomic')
+    my_json = dynamic_import('a_dummy_json')
 
     clips = glob.glob('*.mp4')
     for clip in clips:
