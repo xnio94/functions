@@ -39,7 +39,7 @@ def process_episode(request):
     remove_file = dynamic_import('remove_file')
     save_to_drive = dynamic_import('save_to_drive')
     split_to_atomic = dynamic_import('split_to_atomic')
-    my_json = dynamic_import('a_dummy_json')
+    a_dummy_json = dynamic_import('a_dummy_json')
 
     clips = glob.glob('*.mp4')
     for clip in clips:
